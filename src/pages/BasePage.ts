@@ -1,0 +1,68 @@
+
+import { Locator, Page } from "playwright";
+
+export class BasePage{
+    protected readonly page: Page
+
+    protected readonly logo: Locator
+    protected readonly searchBox: Locator
+    protected readonly searchIcon: Locator
+    protected readonly footerLinks: Locator
+    protected readonly currency: Locator
+    protected readonly cartButton: Locator
+
+    constructor (page: Page){
+        this.page = page;
+
+        this.logo = page.getByRole('img', { name: 'naveenopencart' })
+        this.searchBox = page.getByRole('textbox', { name: 'Search' })
+        this.searchIcon = page.locator('div#search button')
+        this.footerLinks = page.locator('footer a')
+        this.currency = page.locator('#form-currency')
+        this.cartButton = page.locator('div#cart button')
+
+    }
+
+    async isLogoVisible(): Promise<boolean>{
+        return await this.logo.isVisible()
+    }
+
+     async isSearchBoxVisible(): Promise<boolean>{
+        return await this.searchBox.isVisible()
+    }
+    
+     async isCartButtonVisible(): Promise<boolean>{
+        return await this.cartButton.isVisible()
+    }
+
+     async isCurrencyVisible(): Promise<boolean>{
+        return await this.currency.isVisible()
+    }
+
+    async getPageFootersCount(): Promise<number>{
+        return await this.footerLinks.count();
+    }
+
+    async getPageFooters(): Promise<string[]>{
+        return await this.footerLinks.allInnerTexts();
+    }
+
+    async getPageTitle():Promise<string>{
+        return await this.page.title();
+    }
+
+     getPageCurrentUrl(): string{
+        return  this.page.url();
+    }
+
+    async waitForPageLoad(): Promise<void>{
+        return await this.page.waitForLoadState('load')
+    }
+
+    async takeScreenshot(name: string){
+        await this.page.screenshot({
+            fullPage: true,
+            path: `reports/screenshot/${name}.png`
+        })
+    }
+}

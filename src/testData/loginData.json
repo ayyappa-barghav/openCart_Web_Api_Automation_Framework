@@ -1,0 +1,15 @@
+[
+    {
+        "username" : "wrong@opencart.com",
+        "password" : "wrong@123"
+    },
+    {
+        "username" : "right@opencart.com",
+        "password" : ""
+    },
+    {
+        "username" : "username@user.com",
+        "password" : "pass"
+
+    }
+]
