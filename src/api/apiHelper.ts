@@ -18,9 +18,7 @@ export class apiHelper{
        let response: APIResponse =  await this.request.get(`${this.baseURL}${endPoint}`, {
             headers: headers
         })
-
-        console.log(await response.json());
-
+        
         return {
              body: await response.json(),
              status: response.status(),
