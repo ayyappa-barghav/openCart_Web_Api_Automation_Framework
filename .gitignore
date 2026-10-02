@@ -15,5 +15,3 @@ reporting-labs.history.json
 # env files (credentials)
 config/.env.*
 !config/.env.example
-
-
