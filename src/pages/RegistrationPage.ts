@@ -33,7 +33,7 @@ export class RegistrationPage extends BasePage{
        let loginPage = new LoginPage(this.page)
        await loginPage.goToLoginPage();
        await this.registrationLink.click();
-       await this.page.pause()
+       //await this.page.pause()
     }
 
 }

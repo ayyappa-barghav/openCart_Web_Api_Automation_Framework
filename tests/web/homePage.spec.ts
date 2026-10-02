@@ -25,7 +25,7 @@ test('get Home Page Headers', async()=>{
     let headers = await homePage.getHomePageHeaders()
     console.log(headers);
     expect(headers).toEqual([
-        'My Account1123',
+        'My Account',
         'My Orders',
         'My Affiliate Account',
         'Newsletter'

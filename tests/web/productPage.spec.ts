@@ -7,7 +7,7 @@ test.beforeEach(async ({loginPage, homePage, searchResultsPage, page})=>{
     await homePage.doProductSearch('macbook')
     //await searchResultsPage.getProductResultCount();
     await searchResultsPage.selectProduct('MacBook Pro')
-    await page.waitForTimeout(1000) 
+    //await page.waitForTimeout(1000) 
     //await page.pause();
 
 })

@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import { dot } from 'node:test/reporters';
+import reportinglabs from './reporting-labs.config'
 
 /**
  * Read environment variables from file.
@@ -35,7 +36,8 @@ export default defineConfig({
     ['allure-playwright',{
       outputFolder:'allure-results',
       suiteTitle:true,
-    }]
+    }],
+    ['reporting-labs',reportinglabs]
   ]:
   [
     ['html', {outputFolder:'reports/html-report',open:'never'}],
@@ -43,7 +45,8 @@ export default defineConfig({
     ['allure-playwright',{
       outputFolder:'allure-results',
       suiteTitle:true,
-    }]
+    }],
+    ['reporting-labs',reportinglabs]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {

@@ -23,7 +23,7 @@ test('forgotten password link visibility', async()=>{
 
 test('get page title', async()=>{
     await loginPage.goToLoginPage();
-    let pageTitle = await loginPage.getLoginPageTitle();
+    let pageTitle = await loginPage.getPageTitle();
     console.log('title of loginPage is', pageTitle);
     expect(pageTitle).toBe('Account Login')
 })

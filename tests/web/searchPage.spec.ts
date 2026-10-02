@@ -25,7 +25,7 @@ for(let row of productData){
     test(`verify user is able to land on product page - ${row.searchKey} - ${row.productName}`, async({loginPage, homePage, searchResultsPage, productInfoPage, page})=>{
     await homePage.doProductSearch(row.searchKey)
     await searchResultsPage.selectProduct(row.productName)
-    await page.waitForTimeout(1000)
+    //await page.waitForTimeout(1000)
     let productImages = await productInfoPage.getProductImagesCount();
     console.log('images count of product is ', productImages);
 

@@ -8,3 +8,12 @@ node_modules/
 /playwright/.auth/
 /reports
 /allure-results
+/reporting-labs/
+/allure-report/
+reporting-labs.history.json
+
+# env files (credentials)
+config/.env.*
+!config/.env.example
+
+
