@@ -44,6 +44,7 @@ export class ProductInfoPage extends BasePage{
     }
 
     private async getProductPricing(): Promise<void> {
+        await this.page.waitForTimeout(1000)
         let priceData: string[] = await this.productPricing.allInnerTexts();
         let productPrice = priceData[0].trim();
         let productTax = priceData[1].split(':')[1].trim();
