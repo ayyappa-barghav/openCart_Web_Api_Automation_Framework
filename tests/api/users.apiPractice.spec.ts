@@ -6,7 +6,7 @@ let authenticationToken = {
     Authorization: "Bearer 53d7d01bee5b4bfe6f4bfcffd4b35fb53cc8feeae0773c65e168d34ef7e31011"
 }
 
-test('get all users api test', async({request})=>{
+test('@regression get all users api test', async({request})=>{
     let response: APIResponse = await request.get('https://gorest.co.in/public/v2/users', {
         headers: authenticationToken
     })
@@ -20,7 +20,7 @@ test('get all users api test', async({request})=>{
 
 })
 
-test('create a user api test', async({request})=>{
+test('@regression create a user api test', async({request})=>{
 
     let userData = {
         name: 'growing person pw api',
@@ -42,7 +42,7 @@ test('create a user api test', async({request})=>{
     expect(response.status()).toBe(201)
 })
 
-test('update user', async({request})=>{
+test('@regression update user', async({request})=>{
 
     let userData = {
   name: 'pw api created',

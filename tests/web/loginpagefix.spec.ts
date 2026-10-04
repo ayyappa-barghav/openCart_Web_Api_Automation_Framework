@@ -9,7 +9,7 @@ test.beforeEach(async({loginPage})=>{
     await loginPage.goToLoginPage()
 })
 
-test('title test', async({loginPage})=>{
+test('@smoke title test', async({loginPage})=>{
 
     meta({priority: 'P1', severity: 'LOW', owner:'Ayyappa',feature:'Login',story:'US101'})
 
@@ -19,7 +19,7 @@ test('title test', async({loginPage})=>{
    expect(loginPageTitle).toBe('Account Login')
 })
 
-test('login test', async({loginPage, homePage})=>{
+test('@smoke login test', async({loginPage, homePage})=>{
     meta({priority: 'P1', severity: 'critical', owner:'Ayyappa',feature:'Login',story:'US102'})
     testData({username:process.env.USERNAME, password:process.env.PASSWORD},'loginData')
     await loginPage.doLogin(process.env.USERNAME, process.env.PASSWORD)
@@ -34,7 +34,7 @@ test('login test', async({loginPage, homePage})=>{
 //light weight, very easy to maintain, individual csv files, test data is separated, 3rd party library also present, flat files, good for large set of test data
 let testRowData: Record<string, string>[]= CsvHelper.readCsv('src/testData/loginData.csv')
 for(let row of testRowData){
-     test(`login to app with creds - ${row.username} - ${row.password}`, async({loginPage})=>{
+     test(`@regression login to app with creds - ${row.username} - ${row.password}`, async({loginPage})=>{
         meta({priority: 'P2', severity: 'HIGH', owner:'Ayyappa',feature:'Login',story:'US102'})
         await testData(testRowData, 'invalid login data')
         await loginPage.doLogin(row.username, row.password)
@@ -50,7 +50,7 @@ for(let row of testRowData){
 let testExcelData = ExcelHelper.readExcel('src/testData/opencarttestdata.xlsx', 'login')
 for (let row of testExcelData){
 
-    test(`validate login to app with invalid creds - ${row.username} - ${row.password}`, async({loginPage})=>{
+    test(`@regression validate login to app with invalid creds - ${row.username} - ${row.password}`, async({loginPage})=>{
         meta({priority: 'P2', severity: 'HIGH', owner:'Ayyappa',feature:'Login',story:'US102'})
         await testData(testExcelData, 'invalid login data')
         await loginPage.doLogin(row.username, row.password)
@@ -62,7 +62,7 @@ for (let row of testExcelData){
 //inbuit method - parse, lightweight, smaller data source
 let jsonData = JsonHelper.readJson('src/testData/loginData.json')
 for(let data of jsonData){
-    test(`valid login to the app with invalid creds - ${data.username} - ${data.password}`, async({loginPage})=>{
+    test(`@regression valid login to the app with invalid creds - ${data.username} - ${data.password}`, async({loginPage})=>{
         await loginPage.doLogin(data.username, data.password)
         expect(await loginPage.isInvalidLoginMessageDisplayed()).toBeTruthy()
     })
@@ -70,22 +70,22 @@ for(let data of jsonData){
 
 //common features test:
 
-test('app logo exits on page', async({basePage})=>{
+test('@smoke app logo exits on page', async({basePage})=>{
     
     expect(await basePage.isLogoVisible()).toBeTruthy();
 })
 
-test('search box exists on page', async({basePage})=>{
+test('@smoke search box exists on page', async({basePage})=>{
 
     expect(await basePage.isSearchBoxVisible()).toBeTruthy();
 })
 
-test('cart exists on page', async({basePage})=>{
+test('@smoke cart exists on page', async({basePage})=>{
 
     expect(await basePage.isCartButtonVisible()).toBeTruthy();
 })
 
-test('Footers exists on page', async({basePage})=>{
+test('@smoke Footers exists on page', async({basePage})=>{
 
     expect(await basePage.getPageFootersCount()).toBeTruthy();
 })

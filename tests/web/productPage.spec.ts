@@ -12,12 +12,12 @@ test.beforeEach(async ({loginPage, homePage, searchResultsPage, page})=>{
 
 })
 
-test('get product image count', async ({productInfoPage})=>{
+test('@regression get product image count', async ({productInfoPage})=>{
     let imageCount = await productInfoPage.getProductImagesCount();
     console.log('product images count is ', imageCount);
 })
 
-test('get product data', async({productInfoPage})=>{
+test('@regression get product data', async({productInfoPage})=>{
     let actualProductInfo = await productInfoPage.getProductData()
     console.log(actualProductInfo);
 

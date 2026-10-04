@@ -11,7 +11,7 @@ test.beforeEach(async({loginPage, homePage})=>{
 let productData = CsvHelper.readCsv('src/testData/productData.csv')
 
 for(let row of productData){
-    test(`verify product result count ${row.searchKey} - ${row.productName}`, async({homePage, searchResultsPage, productInfoPage, page})=>{
+    test(`@regression verify product result count ${row.searchKey} - ${row.productName}`, async({homePage, searchResultsPage, productInfoPage, page})=>{
     await homePage.doProductSearch(row.searchKey)
     let actualResultCount = await searchResultsPage.getProductResultCount();
     expect(actualResultCount).toBe(Number(row.resultCount))
@@ -22,7 +22,7 @@ for(let row of productData){
 }
 
 for(let row of productData){ 
-    test(`verify user is able to land on product page - ${row.searchKey} - ${row.productName}`, async({loginPage, homePage, searchResultsPage, productInfoPage, page})=>{
+    test(`@regression verify user is able to land on product page - ${row.searchKey} - ${row.productName}`, async({loginPage, homePage, searchResultsPage, productInfoPage, page})=>{
     await homePage.doProductSearch(row.searchKey)
     await searchResultsPage.selectProduct(row.productName)
     //await page.waitForTimeout(1000)

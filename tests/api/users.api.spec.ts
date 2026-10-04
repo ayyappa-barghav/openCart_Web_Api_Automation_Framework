@@ -11,12 +11,12 @@ let userId: number
 
 test.describe.serial('execute all api in serial mode', ()=>{
 
-    test('get the user details', async({apiFixture})=>{
+    test('@smoke get the user details', async({apiFixture})=>{
        let response = await apiFixture.get('/public/v2/users', authHeader)
        expect(response.status).toBe(200)
     })
 
-    test('post the user details', async({apiFixture})=>{
+    test('@smoke post the user details', async({apiFixture})=>{
         let userData = {
             name: `fixtureAPI_${Date.now()}`,
             email: `fixtureapi_${Date.now()}@gmail.com`,
@@ -28,7 +28,7 @@ test.describe.serial('execute all api in serial mode', ()=>{
         console.log('Created user is', userId);
     })
 
-    test('Put call - Update API', async({apiFixture})=>{
+    test('@smoke Put call - Update API', async({apiFixture})=>{
         console.log(userId);
         let userData = {
             name:'update from fixture',
@@ -38,7 +38,7 @@ test.describe.serial('execute all api in serial mode', ()=>{
         expect((response).status).toBe(200)
     })
 
-    test('delete call', async({apiFixture})=>{
+    test('@smoke delete call', async({apiFixture})=>{
         let response = await apiFixture.delete(`/public/v2/users/${userId}`, authHeader)
         expect(response.status).toBe(204)
     })

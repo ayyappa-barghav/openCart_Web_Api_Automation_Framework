@@ -7,7 +7,7 @@ test.beforeEach(async ({page})=>{
     loginPage = new LoginPage(page)
 })
 
-test('loginTest', async()=>{
+test('@smoke loginTest', async()=>{
 
     //loginPage = new LoginPage(page)
     await loginPage.goToLoginPage();
@@ -15,13 +15,13 @@ test('loginTest', async()=>{
 
 })
 
-test('forgotten password link visibility', async()=>{
+test('@smoke forgotten password link visibility', async()=>{
     //loginPage = new LoginPage(page)
    await loginPage.isForgottenPasswordLinkExist()
 
 })
 
-test('get page title', async()=>{
+test('@smoke get page title', async()=>{
     await loginPage.goToLoginPage();
     let pageTitle = await loginPage.getPageTitle();
     console.log('title of loginPage is', pageTitle);
