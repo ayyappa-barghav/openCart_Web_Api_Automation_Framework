@@ -1,5 +1,5 @@
 
-import { test, expect } from '../../src/fixtures/pagefixtures';
+import { test, expect } from '../../src/fixtures/pageFixtures';
 
 test.beforeEach(async ({ loginPage }) => {
     await loginPage.goToLoginPage();
