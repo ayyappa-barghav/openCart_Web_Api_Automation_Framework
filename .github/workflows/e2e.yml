@@ -1,6 +1,6 @@
 # ═══════════════════════════════════════════════════════════════
 # FILE: .github/workflows/master-pipeline.yml
-# REPO: ayyappa-barghav/OpenCartWebAPIAutomationFramework
+# REPO: ayyappa-barghav/openCart_Web_Api_Automation_Framework
 # DEV REPO: jglick/simple-maven-project-with-tests
 # ═══════════════════════════════════════════════════════════════
 # "Run up to environment" — the dropdown controls how far the
@@ -85,7 +85,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: ayyappa-barghav/OpenCartWebAPIAutomationFramework
+          repository: ayyappa-barghav/openCart_Web_Api_Automation_Framework
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -188,7 +188,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: ayyappa-barghav/OpenCartWebAPIAutomationFramework
+          repository: ayyappa-barghav/openCart_Web_Api_Automation_Framework
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -291,7 +291,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: ayyappa-barghav/OpenCartWebAPIAutomationFramework
+          repository: ayyappa-barghav/openCart_Web_Api_Automation_Framework
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -395,7 +395,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: ayyappa-barghav/OpenCartWebAPIAutomationFramework
+          repository: ayyappa-barghav/openCart_Web_Api_Automation_Framework
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -520,7 +520,7 @@ jobs:
             echo "overall=✅ ALL PASSED" >> $GITHUB_OUTPUT
           fi
 
-          REPORT_BASE="https://ayyappa-barghav.github.io/OpenCartWebAPIAutomationFramework/runs/${{ github.run_id }}"
+          REPORT_BASE="https://ayyappa-barghav.github.io/openCart_Web_Api_Automation_Framework/runs/${{ github.run_id }}"
           echo "report_url=${REPORT_BASE}" >> $GITHUB_OUTPUT
 
       - name: Download All Reports
